@@ -1,5 +1,134 @@
 <!DOCTYPE html>
-<html>
-<head><title>Test Page</title></head>
-<body><h1>Hello DAKboard!</h1></body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src *; connect-src *; img-src * data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval';">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Life Gamification App</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+      background: #e0e0e0;
+      display: flex;
+    }
+    body {
+      display: flex;
+      flex-direction: row;
+    }
+    .sidebar {
+      width: 15%;
+      background: #2c3e50;
+      color: white;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      height: 100vh;
+    }
+    .sidebar button {
+      background: #34495e;
+      color: white;
+      border: none;
+      padding: 15px;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 18px;
+    }
+    .sidebar button:hover {
+      background: #1abc9c;
+    }
+    .main-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      gap: 20px;
+      height: 100vh;
+      overflow-y: auto;
+    }
+    .section {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      flex: 1;
+      display: none;
+    }
+    .section.active {
+      display: block;
+    }
+    h2 {
+      color: #2c3e50;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <button onclick="showSection('character')">Character Info</button>
+    <button onclick="showSection('quests')">Quests</button>
+    <button onclick="showSection('rewards')">Rewards/Store</button>
+    <button onclick="showSection('setup')">Character Setup</button>
+  </div>
+
+  <div class="main-content">
+    <div id="character" class="section active"> 
+      <h2>Character Information</h2>
+      <p>Name: TBD</p>
+      <p>Level: TBD</p>
+      <p>Class: TBD</p>
+    </div>
+
+    <div id="quests" class="section">
+      <h2>Quests</h2>
+      <p>Complete real-life tasks to gain XP!</p>
+    </div>
+
+    <div id="rewards" class="section">
+      <h2>Rewards / Store</h2>
+      <p>Spend your earned points here.</p>
+    </div>
+
+    <div id="setup" class="section">
+      <h2>Character Setup</h2>
+      <form onsubmit="event.preventDefault(); setupCharacter()">
+        <label>Name: <input type="text" id="charName" required></label><br><br>
+        <label>Class: 
+          <select id="charClass">
+            <option>Warrior</option>
+            <option>Mage</option>
+            <option>Rogue</option>
+          </select>
+        </label><br><br>
+        <button type="submit">Save Character</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function showSection(sectionId) {
+      document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+      document.getElementById(sectionId).classList.add('active');
+    }
+
+    function setupCharacter() {
+      const name = document.getElementById('charName').value;
+      const charClass = document.getElementById('charClass').value;
+      document.getElementById('character').innerHTML = `
+        <h2>Character Information</h2>
+        <p>Name: ${name}</p>
+        <p>Level: 1</p>
+        <p>Class: ${charClass}</p>
+      `;
+      showSection('character');
+    }
+  </script>
+</body>
 </html>
