@@ -2,7 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
   <title>Life Gamification App</title>
   <style>
     * {
@@ -13,24 +14,22 @@
     html, body {
       width: 100%;
       height: 100%;
-      overflow: hidden;
+      min-width: 100vw;
+      min-height: 100vh;
       font-family: Arial, sans-serif;
       background: #e0e0e0;
-      display: flex;
-    }
-    body {
-      display: flex;
+      display: inline-flex;
       flex-direction: row;
     }
     .sidebar {
-      width: 15%;
+      width: 20%;
       background: #2c3e50;
       color: white;
       padding: 20px;
       display: flex;
       flex-direction: column;
       gap: 15px;
-      height: 100vh;
+      min-height: 100vh;
     }
     .sidebar button {
       background: #34495e;
@@ -50,7 +49,7 @@
       flex-direction: column;
       padding: 20px;
       gap: 20px;
-      height: 100vh;
+      min-height: 100vh;
       overflow-y: auto;
     }
     .section {
@@ -58,8 +57,8 @@
       padding: 20px;
       border-radius: 10px;
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      flex: 1;
       display: none;
+      min-height: 80vh;
     }
     .section.active {
       display: block;
