@@ -3,82 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-Frame-Options" content="ALLOWALL">
   <title>Life Gamification App</title>
   <style>
     body {
-      background: linear-gradient(to bottom right, #1a1a2e, #16213e);
-      color: white;
-      font-family: Arial, sans-serif;
-      padding: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
       margin: 0;
+      background: #f0f0f0;
+      font-family: Arial, sans-serif;
     }
     .container {
-      max-width: 800px;
-      margin: auto;
+      text-align: center;
     }
-    .panel {
-      background: #0f3460;
-      padding: 20px;
-      border-radius: 15px;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+    h1 {
+      font-size: 4rem;
+      color: #333;
     }
-    .avatar {
-      width: 80px;
-      height: 80px;
-      border-radius: 50%;
-      border: 3px solid #e94560;
-    }
-    .progress-bar {
-      background: #e94560;
-      height: 20px;
-      border-radius: 10px;
-    }
-    .progress-container {
-      background: #16213e;
-      border-radius: 10px;
-      overflow: hidden;
-    }
-    label {
-      display: flex;
-      align-items: center;
-      margin-bottom: 10px;
-    }
-    input[type="checkbox"] {
-      margin-right: 10px;
+    p {
+      font-size: 2rem;
+      color: #555;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <!-- Character Panel -->
-    <div class="panel">
-      <img src="avatar.png" alt="Avatar" class="avatar">
-      <h1>Arcanis</h1>
-      <div class="progress-container">
-        <div class="progress-bar" style="width: 50%"></div>
-      </div>
-      <p>Level 15</p>
-    </div>
-
-    <!-- Quest Log -->
-    <div class="panel">
-      <h2>Daily Quests</h2>
-      <label><input type="checkbox"> Complete Morning Routine</label>
-      <label><input type="checkbox"> Work on Project (2 hours)</label>
-
-      <h2>Main Quest</h2>
-      <div class="progress-container">
-        <div class="progress-bar" style="width: 75%"></div>
-      </div>
-    </div>
-
-    <!-- Rewards Panel -->
-    <div class="panel">
-      <h2>Inventory</h2>
-      <p>Sword, Shield, Potion</p>
-    </div>
+    <h1>Hello, DAKboard!</h1>
+    <p>If you can see this, the connection works.</p>
   </div>
 </body>
 </html>
