@@ -14,43 +14,111 @@
       width: 100%;
       height: 100%;
       overflow: hidden;
+      font-family: Arial, sans-serif;
+      background: #e0e0e0;
     }
     body {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
       display: flex;
-      justify-content: center;
-      align-items: center;
-      background: #f0f0f0;
-      font-family: Arial, sans-serif;
     }
-    .container {
+    .sidebar {
+      width: 20%;
+      background: #2c3e50;
+      color: white;
+      padding: 20px;
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      width: 100vw;
-      height: 100vh;
-      min-width: 320px;
-      min-height: 240px;
+      gap: 15px;
     }
-    h1 {
-      font-size: 12vh;
-      color: #333;
+    .sidebar button {
+      background: #34495e;
+      color: white;
+      border: none;
+      padding: 15px;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 16px;
     }
-    p {
-      font-size: 6vh;
-      color: #555;
+    .sidebar button:hover {
+      background: #1abc9c;
+    }
+    .main-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 20px;
+      gap: 20px;
+    }
+    .section {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      flex: 1;
+    }
+    h2 {
+      color: #2c3e50;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Hello, DAKboard!</h1>
-    <p>If you can see this, the connection works.</p>
+  <div class="sidebar">
+    <button onclick="showSection('character')">Character Info</button>
+    <button onclick="showSection('quests')">Quests</button>
+    <button onclick="showSection('rewards')">Rewards/Store</button>
+    <button onclick="showSection('setup')">Character Setup</button>
   </div>
+
+  <div class="main-content">
+    <div id="character" class="section"> 
+      <h2>Character Information</h2>
+      <p>Name: TBD</p>
+      <p>Level: TBD</p>
+      <p>Class: TBD</p>
+    </div>
+
+    <div id="quests" class="section" style="display: none;">
+      <h2>Quests</h2>
+      <p>Complete real-life tasks to gain XP!</p>
+    </div>
+
+    <div id="rewards" class="section" style="display: none;">
+      <h2>Rewards / Store</h2>
+      <p>Spend your earned points here.</p>
+    </div>
+
+    <div id="setup" class="section" style="display: none;">
+      <h2>Character Setup</h2>
+      <form onsubmit="event.preventDefault(); setupCharacter()">
+        <label>Name: <input type="text" id="charName"></label><br><br>
+        <label>Class: 
+          <select id="charClass">
+            <option>Warrior</option>
+            <option>Mage</option>
+            <option>Rogue</option>
+          </select>
+        </label><br><br>
+        <button type="submit">Save Character</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    function showSection(sectionId) {
+      document.querySelectorAll('.section').forEach(sec => sec.style.display = 'none');
+      document.getElementById(sectionId).style.display = 'block';
+    }
+
+    function setupCharacter() {
+      const name = document.getElementById('charName').value;
+      const charClass = document.getElementById('charClass').value;
+      document.getElementById('character').innerHTML = `
+        <h2>Character Information</h2>
+        <p>Name: ${name}</p>
+        <p>Level: 1</p>
+        <p>Class: ${charClass}</p>
+      `;
+      showSection('character');
+    }
+  </script>
 </body>
 </html>
