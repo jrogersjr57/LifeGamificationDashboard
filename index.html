@@ -7,15 +7,26 @@
   <title>Life Gamification Dashboard</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body { width: 100%; height: 100%; font-family: Arial, sans-serif; background: #f4f4f4; display: flex; flex-direction: column; }
+    html, body { width: 100%; height: 100%; font-family: Arial, sans-serif; background: #f4f4f4; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+    
     .container { 
-      flex: 1; 
-      display: grid; 
-      grid-template-columns: 1fr 1fr; 
-      grid-template-rows: 1fr 1fr auto; 
+      display: flex; 
+      flex-direction: column; 
+      justify-content: center; 
+      align-items: center; 
       gap: 20px; 
       padding: 20px; 
     }
+
+    .header { 
+      text-align: center; 
+      background: #333; 
+      color: white; 
+      padding: 20px 0; 
+      font-size: 2.5em; 
+      width: 100%;
+    }
+
     .section { 
       background: white; 
       padding: 20px; 
@@ -25,82 +36,63 @@
       justify-content: center; 
       align-items: center; 
       font-size: 1.5em; 
+      width: 100%;
+      text-align: center;
     }
-    .header { 
-      text-align: center; 
-      background: #333; 
-      color: white; 
-      padding: 20px 0; 
-      font-size: 2.5em; 
-    }
+
     .button-container { 
       display: flex; 
-      justify-content: center; 
+      flex-direction: column; 
       gap: 15px; 
-      padding: 10px; 
-      background: #333; 
     }
-    .bottom-section { 
-      grid-column: span 2; 
-      display: flex; 
-      justify-content: center; 
+
+    button { 
+      padding: 15px 30px; 
+      background: #007BFF; 
+      color: white; 
+      border: none; 
+      border-radius: 5px; 
+      cursor: pointer; 
+      font-size: 1.5em; 
+      width: 250px;
     }
-    /* Grid Area Assignments */
-    #character-section {
-      grid-column: 1 / 2;
-    }
-    #quests-section {
-      grid-column: 2 / 3;
-    }
-    #rewards-section {
-      grid-column: 1 / 3;
+
+    button:hover {
+      background: #0056b3;
     }
   </style>
 </head>
 <body>
+
   <div class="header">
     <h1>Life Gamification Dashboard</h1>
   </div>
 
   <div class="container">
+    <!-- Character Information Section -->
     <div class="section" id="character-section">
       <h2>Character Information</h2>
       <p id="character-info">No character created yet.</p>
     </div>
 
-    <div class="section" id="quests-section">
-      <h2>Quests</h2>
-      <p id="quests">No quests added yet.</p>
-    </div>
-
-    <div class="section" id="rewards-section">
-      <h2>Rewards Store</h2>
-      <p id="rewards-store">No rewards available yet.</p>
-    </div>
-
-    <div class="bottom-section">
-      <div class="button-container">
-        <button onclick="createCharacter()">Create Character</button>
-        <button onclick="addQuest()">Add Quest</button>
-        <button onclick="addReward()">Add Reward</button>
-      </div>
+    <!-- Buttons to Link to Other Sections -->
+    <div class="button-container">
+      <button onclick="location.href='character-creation.html'">Go to Character Creation</button>
+      <button onclick="location.href='quest-adder.html'">Go to Quest Adder</button>
+      <button onclick="location.href='reward-adder.html'">Go to Reward Adder</button>
+      <button onclick="location.href='character-display.html'">Go to Character Display</button>
     </div>
   </div>
 
   <script>
+    // Example of dynamically adding character information (replace with actual logic)
     function createCharacter() {
       document.getElementById('character-info').innerHTML = 'Character: Hero<br>Level: 1';
     }
-
-    function addQuest() {
-      const questsSection = document.getElementById('quests');
-      questsSection.innerHTML += '<br>New Quest: Complete your daily tasks!';
-    }
-
-    function addReward() {
-      const rewardsSection = document.getElementById('rewards-store');
-      rewardsSection.innerHTML += '<br>Reward: Sword of Productivity - 100 XP';
-    }
+    
+    // Call this function to initialize character info when page loads
+    createCharacter();
   </script>
+
 </body>
 </html>
