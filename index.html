@@ -4,106 +4,48 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Life Gamification Dashboard</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      width: 100vw;
-      height: 100vh;
-      background: #f4f4f4;
-      font-family: Arial, sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    header {
-      background: #333;
-      color: white;
-      width: 100%;
-      text-align: center;
-      padding: 10px 0;
-    }
-    .container {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 90%;
-      max-width: 800px;
-      background: white;
-      padding: 20px;
-      margin: 10px 0;
-      border-radius: 10px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-    section {
-      width: 100%;
-      margin: 10px 0;
-      padding: 10px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      background: #fafafa;
-    }
-    button {
-      margin: 5px;
-      padding: 10px 15px;
-      background: #007BFF;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #0056b3;
-    }
-    .button-container {
-      display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-top: 20px;
-    }
-  </style>
 </head>
-<body>
-  <header>
+<body style="margin:0; padding:0; font-family: Arial, sans-serif; background:#f4f4f4;">
+  <div style="width:100%; text-align:center; background:#333; color:white; padding:10px 0;">
     <h1>Life Gamification Dashboard</h1>
-  </header>
-  <div class="container">
-    <section id="character-info">
+  </div>
+
+  <div style="padding:10px;">
+    <div style="background:white; margin:10px auto; padding:15px; border-radius:8px; max-width:800px;">
       <h2>Character Information</h2>
-      <p>No character created yet.</p>
-    </section>
+      <p id="character-info">No character created yet.</p>
+    </div>
 
-    <section id="quests">
+    <div style="background:white; margin:10px auto; padding:15px; border-radius:8px; max-width:800px;">
       <h2>Quests</h2>
-      <p>No quests added yet.</p>
-    </section>
+      <p id="quests">No quests added yet.</p>
+    </div>
 
-    <section id="rewards-store">
+    <div style="background:white; margin:10px auto; padding:15px; border-radius:8px; max-width:800px;">
       <h2>Rewards Store</h2>
-      <p>No rewards available yet.</p>
-    </section>
+      <p id="rewards-store">No rewards available yet.</p>
+    </div>
 
-    <div class="button-container">
-      <button onclick="createCharacter()">Create Character</button>
-      <button onclick="addQuest()">Add Quest</button>
-      <button onclick="addReward()">Add Reward</button>
+    <div style="text-align:center; margin-top:20px;">
+      <button onclick="createCharacter()" style="padding:10px 20px; background:#007BFF; color:white; border:none; border-radius:5px; cursor:pointer;">Create Character</button>
+      <button onclick="addQuest()" style="padding:10px 20px; background:#007BFF; color:white; border:none; border-radius:5px; cursor:pointer;">Add Quest</button>
+      <button onclick="addReward()" style="padding:10px 20px; background:#007BFF; color:white; border:none; border-radius:5px; cursor:pointer;">Add Reward</button>
     </div>
   </div>
 
   <script>
     function createCharacter() {
-      const characterSection = document.getElementById('character-info');
-      characterSection.innerHTML = '<h2>Character Information</h2><p>Character: Hero</p><p>Level: 1</p>';
+      document.getElementById('character-info').innerHTML = 'Character: Hero<br>Level: 1';
     }
 
     function addQuest() {
       const questsSection = document.getElementById('quests');
-      questsSection.innerHTML += '<p>New Quest: Complete your daily tasks!</p>';
+      questsSection.innerHTML += '<br>New Quest: Complete your daily tasks!';
     }
 
     function addReward() {
       const rewardsSection = document.getElementById('rewards-store');
-      rewardsSection.innerHTML += '<p>Reward: Sword of Productivity - 100 XP</p>';
+      rewardsSection.innerHTML += '<br>Reward: Sword of Productivity - 100 XP';
     }
   </script>
 </body>
