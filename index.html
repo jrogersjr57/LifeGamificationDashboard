@@ -8,7 +8,7 @@
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body { width: 100%; height: 100%; font-family: Arial, sans-serif; background: #f4f4f4; display: flex; flex-direction: column; justify-content: center; align-items: center; }
-    
+
     .container { 
       display: flex; 
       flex-direction: column; 
@@ -16,6 +16,7 @@
       align-items: center; 
       gap: 20px; 
       padding: 20px; 
+      width: 80%;
     }
 
     .header { 
@@ -27,7 +28,8 @@
       width: 100%;
     }
 
-    .section { 
+    /* Character Section Styles */
+    .character-section { 
       background: white; 
       padding: 20px; 
       border-radius: 8px; 
@@ -38,12 +40,27 @@
       font-size: 1.5em; 
       width: 100%;
       text-align: center;
+      border: 2px solid #007BFF;
     }
 
+    .character-info {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 20px;
+    }
+
+    .character-info p {
+      font-size: 1.2em;
+    }
+
+    /* Button Section Styles */
     .button-container { 
       display: flex; 
-      flex-direction: column; 
+      justify-content: center; 
       gap: 15px; 
+      padding: 10px; 
+      background: #333; 
     }
 
     button { 
@@ -53,8 +70,7 @@
       border: none; 
       border-radius: 5px; 
       cursor: pointer; 
-      font-size: 1.5em; 
-      width: 250px;
+      font-size: 1.2em; 
     }
 
     button:hover {
@@ -70,28 +86,38 @@
 
   <div class="container">
     <!-- Character Information Section -->
-    <div class="section" id="character-section">
+    <div class="character-section" id="character-section">
       <h2>Character Information</h2>
-      <p id="character-info">No character created yet.</p>
+      <div class="character-info">
+        <p id="character-name">Name: No character created yet.</p>
+        <p id="character-level">Level: 0</p>
+        <p id="character-health">Health: 100</p>
+        <p id="character-xp">XP: 0</p>
+      </div>
     </div>
 
-    <!-- Buttons to Link to Other Sections -->
+    <!-- Buttons Section -->
     <div class="button-container">
-      <button onclick="location.href='character-creation.html'">Go to Character Creation</button>
-      <button onclick="location.href='quest-adder.html'">Go to Quest Adder</button>
-      <button onclick="location.href='reward-adder.html'">Go to Reward Adder</button>
-      <button onclick="location.href='character-display.html'">Go to Character Display</button>
+      <button onclick="createCharacter()">Create Character</button>
+      <button onclick="updateCharacter()">Update Character</button>
     </div>
   </div>
 
   <script>
-    // Example of dynamically adding character information (replace with actual logic)
+    // Example: Creating a Character
     function createCharacter() {
-      document.getElementById('character-info').innerHTML = 'Character: Hero<br>Level: 1';
+      document.getElementById('character-name').textContent = 'Name: Hero';
+      document.getElementById('character-level').textContent = 'Level: 1';
+      document.getElementById('character-health').textContent = 'Health: 100';
+      document.getElementById('character-xp').textContent = 'XP: 0';
     }
-    
-    // Call this function to initialize character info when page loads
-    createCharacter();
+
+    // Example: Updating Character (you can customize this function further)
+    function updateCharacter() {
+      document.getElementById('character-level').textContent = 'Level: 2';
+      document.getElementById('character-health').textContent = 'Health: 90';
+      document.getElementById('character-xp').textContent = 'XP: 150';
+    }
   </script>
 
 </body>
