@@ -2,34 +2,42 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Life Gamification Dashboard</title>
+  <style>
+    body { margin: 0; padding: 0; font-family: Arial, sans-serif; background: #f4f4f4; }
+    .container { width: 100%; max-width: 800px; margin: auto; padding: 10px; }
+    .section { background: white; padding: 15px; border-radius: 8px; margin-bottom: 10px; }
+    .header { text-align: center; background: #333; color: white; padding: 10px 0; }
+    button { padding: 10px 20px; background: #007BFF; color: white; border: none; border-radius: 5px; cursor: pointer; margin: 5px; }
+  </style>
 </head>
-<body style="margin:0; padding:0; font-family: Arial, sans-serif; background:#f4f4f4;">
-  <div style="width:100%; text-align:center; background:#333; color:white; padding:10px 0;">
+<body>
+  <div class="header">
     <h1>Life Gamification Dashboard</h1>
   </div>
 
-  <div style="padding:10px;">
-    <div style="background:white; margin:10px auto; padding:15px; border-radius:8px; max-width:800px;">
+  <div class="container">
+    <div class="section" id="character-section">
       <h2>Character Information</h2>
       <p id="character-info">No character created yet.</p>
     </div>
 
-    <div style="background:white; margin:10px auto; padding:15px; border-radius:8px; max-width:800px;">
+    <div class="section" id="quests-section">
       <h2>Quests</h2>
       <p id="quests">No quests added yet.</p>
     </div>
 
-    <div style="background:white; margin:10px auto; padding:15px; border-radius:8px; max-width:800px;">
+    <div class="section" id="rewards-section">
       <h2>Rewards Store</h2>
       <p id="rewards-store">No rewards available yet.</p>
     </div>
 
-    <div style="text-align:center; margin-top:20px;">
-      <button onclick="createCharacter()" style="padding:10px 20px; background:#007BFF; color:white; border:none; border-radius:5px; cursor:pointer;">Create Character</button>
-      <button onclick="addQuest()" style="padding:10px 20px; background:#007BFF; color:white; border:none; border-radius:5px; cursor:pointer;">Add Quest</button>
-      <button onclick="addReward()" style="padding:10px 20px; background:#007BFF; color:white; border:none; border-radius:5px; cursor:pointer;">Add Reward</button>
+    <div style="text-align: center;">
+      <button onclick="createCharacter()">Create Character</button>
+      <button onclick="addQuest()">Add Quest</button>
+      <button onclick="addReward()">Add Reward</button>
     </div>
   </div>
 
