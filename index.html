@@ -13,19 +13,98 @@
       background: #f4f4f4;
       font-family: Arial, sans-serif;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
     }
-    h1, p {
-      margin: 10px;
+    header {
+      background: #333;
+      color: white;
+      width: 100%;
       text-align: center;
+      padding: 10px 0;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 90%;
+      max-width: 800px;
+      background: white;
+      padding: 20px;
+      margin: 10px 0;
+      border-radius: 10px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    section {
+      width: 100%;
+      margin: 10px 0;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      background: #fafafa;
+    }
+    button {
+      margin: 5px;
+      padding: 10px 15px;
+      background: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+    .button-container {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
     }
   </style>
 </head>
 <body>
-  <div>
+  <header>
     <h1>Life Gamification Dashboard</h1>
-    <p>Simple layout to verify DAKboard compatibility.</p>
+  </header>
+  <div class="container">
+    <section id="character-info">
+      <h2>Character Information</h2>
+      <p>No character created yet.</p>
+    </section>
+
+    <section id="quests">
+      <h2>Quests</h2>
+      <p>No quests added yet.</p>
+    </section>
+
+    <section id="rewards-store">
+      <h2>Rewards Store</h2>
+      <p>No rewards available yet.</p>
+    </section>
+
+    <div class="button-container">
+      <button onclick="createCharacter()">Create Character</button>
+      <button onclick="addQuest()">Add Quest</button>
+      <button onclick="addReward()">Add Reward</button>
+    </div>
   </div>
+
+  <script>
+    function createCharacter() {
+      const characterSection = document.getElementById('character-info');
+      characterSection.innerHTML = '<h2>Character Information</h2><p>Character: Hero</p><p>Level: 1</p>';
+    }
+
+    function addQuest() {
+      const questsSection = document.getElementById('quests');
+      questsSection.innerHTML += '<p>New Quest: Complete your daily tasks!</p>';
+    }
+
+    function addReward() {
+      const rewardsSection = document.getElementById('rewards-store');
+      rewardsSection.innerHTML += '<p>Reward: Sword of Productivity - 100 XP</p>';
+    }
+  </script>
 </body>
 </html>
