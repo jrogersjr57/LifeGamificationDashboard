@@ -1,0 +1,9 @@
+[
+  {
+    "id": "1",
+    "bossName": "Goblin Thief",
+    "bossHP": 40,
+    "bossXP": 750,
+    "bossGil": 50
+  }
+]
