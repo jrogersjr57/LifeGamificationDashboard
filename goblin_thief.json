@@ -1,0 +1,10 @@
+{
+  "character": {
+    "name": "Goblin Thief",
+    "health": {
+      "current": 20,
+      "max": 20
+    },
+    "xp": 200
+  }
+}
