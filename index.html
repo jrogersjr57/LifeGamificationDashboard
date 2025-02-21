@@ -7,27 +7,9 @@
     <title>Title</title>
 </head>
 <body>
-<div id="myData"></div>
-<script type="text/javascript">
-    fetch('boss.json')
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
-            appendData(data);
-        })
-        .catch(function (err) {
-            console.log('error: ' + err);
-        });
-
-    function appendData(data) {
-        let mainContainer = document.getElementById("myData");
-        for (let i = 0; i < data.length; i++) {
-            let div = document.createElement("div");
-            div.innerHTML = 'Name: ' + data[i].bossName + ' ' + data[i].bossHP + ' ' + data[i].bossXP + ' ' + data[i].bossGil;
-            mainContainer.appendChild(div);
-        }
-    }
-</script>
+    Goblin Thief
+    HP: <font color="red">40</font> / 40
+    XP: 750
+    Gil: 50
 </body>
 </html>
