@@ -1,124 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Life Gamification Dashboard</title>
-  <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body { width: 100%; height: 100%; font-family: Arial, sans-serif; background: #f4f4f4; display: flex; flex-direction: column; justify-content: center; align-items: center; }
-
-    .container { 
-      display: flex; 
-      flex-direction: column; 
-      justify-content: center; 
-      align-items: center; 
-      gap: 20px; 
-      padding: 20px; 
-      width: 80%;
-    }
-
-    .header { 
-      text-align: center; 
-      background: #333; 
-      color: white; 
-      padding: 20px 0; 
-      font-size: 2.5em; 
-      width: 100%;
-    }
-
-    /* Character Section Styles */
-    .character-section { 
-      background: white; 
-      padding: 20px; 
-      border-radius: 8px; 
-      display: flex; 
-      flex-direction: column; 
-      justify-content: center; 
-      align-items: center; 
-      font-size: 1.5em; 
-      width: 100%;
-      text-align: center;
-      border: 2px solid #007BFF;
-    }
-
-    .character-info {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      padding: 20px;
-    }
-
-    .character-info p {
-      font-size: 1.2em;
-    }
-
-    /* Button Section Styles */
-    .button-container { 
-      display: flex; 
-      justify-content: center; 
-      gap: 15px; 
-      padding: 10px; 
-      background: #333; 
-    }
-
-    button { 
-      padding: 15px 30px; 
-      background: #007BFF; 
-      color: white; 
-      border: none; 
-      border-radius: 5px; 
-      cursor: pointer; 
-      font-size: 1.2em; 
-    }
-
-    button:hover {
-      background: #0056b3;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Title</title>
 </head>
 <body>
+<div id="myData"></div>
+<script type="text/javascript">
+    fetch('goblin_thief.json')
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            appendData(data);
+        })
+        .catch(function (err) {
+            console.log('error: ' + err);
+        });
 
-  <div class="header">
-    <h1>Life Gamification Dashboard</h1>
-  </div>
-
-  <div class="container">
-    <!-- Character Information Section -->
-    <div class="character-section" id="character-section">
-      <h2>Character Information</h2>
-      <div class="character-info">
-        <p id="character-name">Name: No character created yet.</p>
-        <p id="character-level">Level: 0</p>
-        <p id="character-health">Health: 100</p>
-        <p id="character-xp">XP: 0</p>
-      </div>
-    </div>
-
-    <!-- Buttons Section -->
-    <div class="button-container">
-      <button onclick="createCharacter()">Create Character</button>
-      <button onclick="updateCharacter()">Update Character</button>
-    </div>
-  </div>
-
-  <script>
-    // Example: Creating a Character
-    function createCharacter() {
-      document.getElementById('character-name').textContent = 'Name: Hero';
-      document.getElementById('character-level').textContent = 'Level: 1';
-      document.getElementById('character-health').textContent = 'Health: 100';
-      document.getElementById('character-xp').textContent = 'XP: 0';
+    function appendData(data) {
+        let mainContainer = document.getElementById("myData");
+        for (let i = 0; i < data.length; i++) {
+            let div = document.createElement("div");
+            div.innerHTML = 'Name: ' + data[i].firstName + ' ' + data[i].lastName;
+            mainContainer.appendChild(div);
+        }
     }
-
-    // Example: Updating Character (you can customize this function further)
-    function updateCharacter() {
-      document.getElementById('character-level').textContent = 'Level: 2';
-      document.getElementById('character-health').textContent = 'Health: 90';
-      document.getElementById('character-xp').textContent = 'XP: 150';
-    }
-  </script>
-
+</script>
 </body>
 </html>
